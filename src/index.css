@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-navy-900: #0f0d2e;
+    --color-navy-800: #1e1b4b;
+    --color-surface: #12103a;
+    --color-surface-card: #1a1752;
+    --color-surface-elevated: #221e66;
+    --color-coral: #ff4a2a;
+    --color-violet: #8b5cf6;
+    --color-gold: #f59e0b;
+  }
+
+  * {
+    @apply box-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-[#0f0d2e] text-white font-sans antialiased min-h-screen;
+    background-image: 
+      radial-gradient(ellipse at 20% 20%, rgba(139,92,246,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(255,74,42,0.06) 0%, transparent 50%);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold;
+  }
+
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-violet-400 rounded;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(139,92,246,0.4);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(139,92,246,0.7);
+  }
+}
+
+@layer components {
+  /* Card components */
+  .card {
+    @apply bg-[#1a1752] border border-white/10 rounded-2xl shadow-card;
+  }
+
+  .card-hover {
+    @apply card transition-all duration-300 hover:border-violet-500/30 hover:shadow-card-hover hover:-translate-y-0.5;
+  }
+
+  .card-elevated {
+    @apply bg-[#221e66] border border-white/10 rounded-2xl shadow-card;
+  }
+
+  /* Button styles */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm
+           bg-gradient-to-r from-coral-500 to-violet-500 text-white
+           hover:from-coral-400 hover:to-violet-400
+           focus-visible:outline-2 focus-visible:outline-violet-400
+           transition-all duration-200 shadow-glow-violet
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm
+           bg-white/10 text-white border border-white/20
+           hover:bg-white/15 hover:border-white/30
+           focus-visible:outline-2 focus-visible:outline-violet-400
+           transition-all duration-200
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm
+           text-white/70 hover:text-white hover:bg-white/10
+           focus-visible:outline-2 focus-visible:outline-violet-400
+           transition-all duration-200;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-sm
+           bg-red-500/20 text-red-300 border border-red-500/30
+           hover:bg-red-500/30 hover:border-red-500/50
+           transition-all duration-200;
+  }
+
+  /* Input styles */
+  .input {
+    @apply w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5
+           text-white placeholder-white/30 text-sm
+           focus:outline-none focus:border-violet-500/50 focus:bg-white/10
+           transition-all duration-200;
+  }
+
+  .select {
+    @apply input appearance-none cursor-pointer;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-white/70 mb-1.5;
+  }
+
+  /* Badge styles */
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-demo {
+    @apply badge bg-amber-500/20 text-amber-300 border border-amber-500/30;
+  }
+
+  .badge-ai {
+    @apply badge bg-violet-500/20 text-violet-300 border border-violet-500/30;
+  }
+
+  .badge-success {
+    @apply badge bg-emerald-500/20 text-emerald-300 border border-emerald-500/30;
+  }
+
+  .badge-warning {
+    @apply badge bg-amber-500/20 text-amber-300 border border-amber-500/30;
+  }
+
+  .badge-danger {
+    @apply badge bg-red-500/20 text-red-300 border border-red-500/30;
+  }
+
+  /* Progress bar */
+  .progress-bar {
+    @apply h-2 rounded-full bg-white/10 overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full rounded-full transition-all duration-500;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-coral-400 via-violet-400 to-gold-400 bg-clip-text text-transparent;
+  }
+
+  .gradient-text-coral {
+    @apply bg-gradient-to-r from-coral-400 to-violet-400 bg-clip-text text-transparent;
+  }
+
+  /* Shimmer loading skeleton */
+  .skeleton {
+    @apply bg-white/5 rounded-xl animate-pulse;
+  }
+
+  .shimmer {
+    background: linear-gradient(90deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.03) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite linear;
+  }
+
+  /* Divider */
+  .divider {
+    @apply border-t border-white/10 my-4;
+  }
+
+  /* Sidebar item */
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium
+           text-white/60 hover:text-white hover:bg-white/10
+           transition-all duration-200 cursor-pointer;
+  }
+
+  .nav-item-active {
+    @apply nav-item text-white bg-gradient-to-r from-violet-500/20 to-coral-500/10
+           border border-violet-500/30;
+  }
+
+  /* Section header */
+  .section-title {
+    @apply text-xl font-display font-semibold text-white;
+  }
+
+  .section-subtitle {
+    @apply text-sm text-white/50 mt-1;
+  }
+
+  /* Empty state */
+  .empty-state {
+    @apply flex flex-col items-center justify-center py-16 text-center;
+  }
+
+  /* Toast-like notification banner */
+  .demo-banner {
+    @apply flex items-center gap-2 px-4 py-2.5 rounded-xl
+           bg-amber-500/10 border border-amber-500/30 text-amber-300 text-sm;
+  }
+
+  /* Tab navigation */
+  .tab {
+    @apply px-4 py-2.5 text-sm font-medium rounded-lg cursor-pointer
+           text-white/60 hover:text-white transition-all duration-200;
+  }
+
+  .tab-active {
+    @apply tab text-white bg-white/10 border border-white/20;
+  }
+}
+
+@layer utilities {
+  .bg-glass {
+    @apply bg-white/5 backdrop-blur-sm;
+  }
+
+  .border-subtle {
+    @apply border border-white/10;
+  }
+
+  .text-muted {
+    @apply text-white/50;
+  }
+
+  .text-dim {
+    @apply text-white/30;
+  }
+
+  /* Gradient background orbs */
+  .orb-violet {
+    @apply absolute rounded-full bg-violet-600/20 blur-3xl pointer-events-none;
+  }
+
+  .orb-coral {
+    @apply absolute rounded-full bg-coral-500/15 blur-3xl pointer-events-none;
+  }
+
+  /* Animation utilities */
+  .animate-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .slide-in-up {
+    animation: slideUp 0.4s ease-out;
+  }
+}
+
+/* Print styles */
+@media print {
+  nav, aside, .no-print { display: none !important; }
+  body { background: white !important; color: black !important; }
+  .card { border: 1px solid #ccc !important; }
+}
