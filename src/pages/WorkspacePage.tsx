@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard, DollarSign, Clock, CheckSquare,
-  Store, MessageSquare, ArrowLeft, Sparkles, AlertTriangle,
+  Store, MessageSquare, ArrowLeft, AlertTriangle,
   Download, Printer
 } from 'lucide-react';
 import { useEventStore } from '../store/eventStore';
@@ -50,7 +50,7 @@ const WorkspacePage: React.FC = () => {
 
   const days = daysUntilEvent(event.formData.date);
   const totalEstimated = event.budgetItems.reduce((s, b) => s + b.estimated, 0);
-  const totalActual = event.budgetItems.reduce((s, b) => s + b.actual, 0);
+  const _totalActual = event.budgetItems.reduce((s, b) => s + b.actual, 0);
   const isOverBudget = totalEstimated > event.formData.budget;
   const completedTasks = event.tasks.filter((t) => t.status === 'completed').length;
 

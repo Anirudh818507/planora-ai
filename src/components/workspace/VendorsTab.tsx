@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Plus, Edit2, Trash2, Check, X, ExternalLink, Info } from 'lucide-react';
+import { Plus, Edit2, Trash2, Check, X, Info } from 'lucide-react';
 import type { PlanorEvent, Vendor, VendorStatus, BudgetCategory } from '../../types';
 import { useEventStore } from '../../store/eventStore';
 import { formatCurrency, categoryLabels, categoryColors, isValidEmail } from '../../utils/helpers';
@@ -78,7 +78,7 @@ const VendorsTab: React.FC<VendorsTabProps> = ({ event }) => {
     : vendors.filter((v) => v.status === filterStatus);
 
   const totalEstimated = vendors.reduce((s, v) => s + v.estimatedCost, 0);
-  const totalActual = vendors.reduce((s, v) => s + v.actualCost, 0);
+  const _totalActual = vendors.reduce((s, v) => s + v.actualCost, 0);
   const confirmedCount = vendors.filter((v) => v.status === 'confirmed' || v.status === 'booked').length;
 
   return (

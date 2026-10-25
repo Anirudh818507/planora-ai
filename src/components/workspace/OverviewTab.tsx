@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Calendar, Users, DollarSign, MapPin, CheckSquare,
+  Calendar, Users, DollarSign, CheckSquare,
   TrendingUp, Clock, AlertTriangle, Sparkles, ChevronRight,
   FileText, Star
 } from 'lucide-react';

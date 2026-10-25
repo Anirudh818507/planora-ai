@@ -8,8 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint src",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run --pool=vmThreads",
-    "test:watch": "vitest --pool=vmThreads",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "preview": "vite preview"
   },
   "dependencies": {

@@ -129,7 +129,7 @@ const CreateEventPage: React.FC = () => {
       }
 
       navigate(`/event/${newEvent.id}`);
-    } catch (err) {
+    } catch {
       setGenError('An unexpected error occurred. Please try again.');
       setLoading(false);
     }

@@ -85,7 +85,7 @@ const DashboardPage: React.FC = () => {
             const spent = event.budgetItems.reduce((s, b) => s + b.actual, 0);
             const estimated = event.budgetItems.reduce((s, b) => s + b.estimated, 0);
             const spentPct = totalBudget > 0 ? Math.min((spent / totalBudget) * 100, 100) : 0;
-            const estPct = totalBudget > 0 ? Math.min((estimated / totalBudget) * 100, 100) : 0;
+            const _estPct = totalBudget > 0 ? Math.min((estimated / totalBudget) * 100, 100) : 0;
             const completedTasks = event.tasks.filter((t) => t.status === 'completed').length;
             const totalTasks = event.tasks.length;
             const taskPct = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;

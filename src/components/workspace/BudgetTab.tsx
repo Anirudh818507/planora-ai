@@ -128,7 +128,7 @@ const BudgetTab: React.FC<BudgetTabProps> = ({ event }) => {
 
         {/* Legend */}
         <div className="flex flex-wrap gap-3 mt-3">
-          {Object.entries(categoryTotals).map(([cat, amount]) => {
+          {Object.entries(categoryTotals).map(([cat, _amount]) => {
             const color = categoryColors[cat as BudgetCategory] ?? '#8b5cf6';
             return (
               <div key={cat} className="flex items-center gap-1.5 text-xs text-white/50">

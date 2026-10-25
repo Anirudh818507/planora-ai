@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Plus, Check, X, Edit2, Trash2, CheckSquare, Square, AlertCircle } from 'lucide-react';
+import { Plus, Check, X, Edit2, Trash2, CheckSquare, Square } from 'lucide-react';
 import type { PlanorEvent, Task, TaskStatus } from '../../types';
 import { useEventStore } from '../../store/eventStore';
 import { getEffectiveTaskStatus, daysUntilEvent } from '../../utils/helpers';
